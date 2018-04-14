@@ -27,7 +27,10 @@ public class BeginnerLevelController implements Initializable {
         private ToggleButton btnButtonThree;
         @FXML
         private ToggleButton btnButtonFour;
-        
+        @FXML
+        private ToggleButton btnButtonFive;
+        @FXML
+        private ToggleButton btnButtonSix;
         @FXML
     private void One(ActionEvent event){
         double btnButtonOnex = btnButtonOne.getLayoutX();
@@ -38,6 +41,10 @@ public class BeginnerLevelController implements Initializable {
         double btnButtonThreey = btnButtonThree.getLayoutY();
         double btnButtonFourx = btnButtonFour.getLayoutX();
         double btnButtonFoury = btnButtonFour.getLayoutY(); 
+        double btnButtonFivex = btnButtonFive.getLayoutX();
+        double btnButtonFivey = btnButtonFive.getLayoutY();
+        double btnButtonSixx = btnButtonSix.getLayoutX();
+        double btnButtonSixy = btnButtonSix.getLayoutY();
         
         if(btnButtonOne.isSelected()&&btnButtonTwo.isSelected()){
                         
@@ -68,6 +75,26 @@ public class BeginnerLevelController implements Initializable {
                 
                 btnButtonOne.setSelected(false);
                 btnButtonFour.setSelected(false);
+        }else if(btnButtonOne.isSelected()&&btnButtonFive.isSelected()){
+            
+                btnButtonOne.setLayoutX(btnButtonFivex);
+                btnButtonOne.setLayoutY(btnButtonFivey);  
+                btnButtonFive.setLayoutX(btnButtonOnex);
+                btnButtonFive.setLayoutY(btnButtonOney);
+                
+                btnButtonOne.setSelected(false);
+                btnButtonFive.setSelected(false);
+                
+        }else if(btnButtonOne.isSelected()&&btnButtonSix.isSelected()){
+            
+                btnButtonOne.setLayoutX(btnButtonSixx);
+                btnButtonOne.setLayoutY(btnButtonSixy);  
+                btnButtonSix.setLayoutX(btnButtonOnex);
+                btnButtonSix.setLayoutY(btnButtonOney);
+                
+                btnButtonOne.setSelected(false);
+                btnButtonSix.setSelected(false);
+                
         }else if(btnButtonTwo.isSelected()&&btnButtonThree.isSelected()){
             
                 btnButtonTwo.setLayoutX(btnButtonThreex);
@@ -88,6 +115,26 @@ public class BeginnerLevelController implements Initializable {
                 btnButtonTwo.setSelected(false);
                 btnButtonFour.setSelected(false);
                 
+        }else if(btnButtonTwo.isSelected()&&btnButtonFive.isSelected()){
+            
+                btnButtonTwo.setLayoutX(btnButtonFivex);
+                btnButtonTwo.setLayoutY(btnButtonFivey);  
+                btnButtonFive.setLayoutX(btnButtonTwox);
+                btnButtonFive.setLayoutY(btnButtonTwoy);
+                
+                btnButtonTwo.setSelected(false);
+                btnButtonFive.setSelected(false);
+                
+        }else if(btnButtonTwo.isSelected()&&btnButtonSix.isSelected()){
+            
+                btnButtonTwo.setLayoutX(btnButtonSixx);
+                btnButtonTwo.setLayoutY(btnButtonSixy);  
+                btnButtonSix.setLayoutX(btnButtonTwox);
+                btnButtonSix.setLayoutY(btnButtonTwoy);
+                
+                btnButtonTwo.setSelected(false);
+                btnButtonSix.setSelected(false);;
+                
         }else if(btnButtonThree.isSelected()&&btnButtonFour.isSelected()){
             
                 btnButtonThree.setLayoutX(btnButtonFourx);
@@ -97,6 +144,26 @@ public class BeginnerLevelController implements Initializable {
                 
                 btnButtonThree.setSelected(false);
                 btnButtonFour.setSelected(false);
+                
+        }else if(btnButtonThree.isSelected()&&btnButtonFive.isSelected()){
+            
+                btnButtonThree.setLayoutX(btnButtonFivex);
+                btnButtonThree.setLayoutY(btnButtonFivey);  
+                btnButtonFive.setLayoutX(btnButtonThreex);
+                btnButtonFive.setLayoutY(btnButtonThreey);
+                
+                btnButtonThree.setSelected(false);
+                btnButtonFive.setSelected(false);
+                
+        }else if(btnButtonThree.isSelected()&&btnButtonSix.isSelected()){
+            
+                btnButtonThree.setLayoutX(btnButtonSixx);
+                btnButtonThree.setLayoutY(btnButtonSixy);  
+                btnButtonSix.setLayoutX(btnButtonThreex);
+                btnButtonSix.setLayoutY(btnButtonThreey);
+                
+                btnButtonThree.setSelected(false);
+                btnButtonSix.setSelected(false);
                 
         }
         
