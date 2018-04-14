@@ -165,6 +165,26 @@ public class BeginnerLevelController implements Initializable {
                 btnButtonThree.setSelected(false);
                 btnButtonSix.setSelected(false);
                 
+        }else if(btnButtonFour.isSelected()&&btnButtonFive.isSelected()){
+            
+                btnButtonFour.setLayoutX(btnButtonFivex);
+                btnButtonFour.setLayoutY(btnButtonFivey);  
+                btnButtonFive.setLayoutX(btnButtonFourx);
+                btnButtonFive.setLayoutY(btnButtonFoury);
+                
+                btnButtonFour.setSelected(false);
+                btnButtonFive.setSelected(false);
+                
+        }else if(btnButtonFour.isSelected()&&btnButtonSix.isSelected()){
+            
+                btnButtonFour.setLayoutX(btnButtonSixx);
+                btnButtonFour.setLayoutY(btnButtonSixy);  
+                btnButtonSix.setLayoutX(btnButtonFourx);
+                btnButtonSix.setLayoutY(btnButtonFoury);
+                
+                btnButtonFour.setSelected(false);
+                btnButtonSix.setSelected(false);
+                
         }
         
     }
