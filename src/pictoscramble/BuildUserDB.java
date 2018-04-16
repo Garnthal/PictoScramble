@@ -11,11 +11,7 @@ import java.sql.Statement;
 
 
 
-/**
- *
- * @author c0679269
- */
-public class BuildUserDB {
+
     
 
 

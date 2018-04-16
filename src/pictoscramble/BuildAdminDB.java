@@ -1,5 +1,7 @@
 package pictoscramble;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.Statement;
 
 /*
@@ -7,17 +9,6 @@ import java.sql.Statement;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-
-/**
- *
- * @author c0679269
- */
-public class BuildAdminDB {
-    
-
-
 
 
 /**
