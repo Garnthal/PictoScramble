@@ -5,18 +5,22 @@
  */
 package pictoscramble;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import static pictoscramble.Main.homeStage;
 
 /**
  * FXML Controller class
@@ -49,17 +53,18 @@ public class UserScreenController implements Initializable {
         if (ke.getCode().equals(KeyCode.ENTER))
         {
             //Ensures that null values aren't usable
-//            if(txtNewUser.getText().equals("")){
-//                
-//                txtNewUser.setPromptText("Enter first name");
-//            }else{
-//                
-//                listItems.add(txtNewUser.getText());
-//        
-//                txtNewUser.setVisible(false);
-//                btnAdd.setVisible(false);
-//                btnCancel.setVisible(false);
-//            }
+            if(txtNewUser.getText().equals("")){
+                
+                txtNewUser.setPromptText("Enter first name");
+                
+            }else{
+                
+                listItems.add(txtNewUser.getText());
+        
+                txtNewUser.setVisible(false);
+                btnAdd.setVisible(false);
+                btnCancel.setVisible(false);
+            }
         }
     }
     
@@ -76,9 +81,12 @@ public class UserScreenController implements Initializable {
      
     @FXML
     private void Add(ActionEvent event){
- 
+        
+         //Ensures that null values aren't usable
         if(txtNewUser.getText().equals("")){
+            
             txtNewUser.setPromptText("Enter first name");
+            
         }else{
         listItems.add(txtNewUser.getText());
         
@@ -97,12 +105,14 @@ public class UserScreenController implements Initializable {
     
     @FXML
     private void Exit(ActionEvent event){
+        //exits the program when the exit button is clicked
         System.exit(0);
     }
     
     @FXML
-    private void Start(ActionEvent event){
-      
+    private void Start(ActionEvent event) throws IOException{ 
+    // Swap screen
+    homeStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("BeginnerLevel.fxml"))));
         
     }
     

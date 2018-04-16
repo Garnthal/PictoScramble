@@ -24,8 +24,6 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("UserScreen.fxml"));
         
         
-        
-        homeStage.setTitle("PictoScramble");
         homeStage.setScene(new Scene(root));
         homeStage.show();
 

@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pictoscramble.BeginnerLevelController">
-    
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pictoscramble.BeginnerLevelController">
+   <children>
+      <ToggleButton id="btnButtonThree" fx:id="btnButtonThree" layoutX="235.0" layoutY="280.0" mnemonicParsing="false" onAction="#One" text="Three" />
+      <ToggleButton id="btnButtonFour" fx:id="btnButtonFour" layoutX="300.0" layoutY="280.0" mnemonicParsing="false" onAction="#One" text="Four" />
+      <ToggleButton id="btnButtonOne" fx:id="btnButtonOne" layoutX="115.0" layoutY="280.0" mnemonicParsing="false" onAction="#One" text="One" />
+      <ToggleButton id="btnButtonTwo" fx:id="btnButtonTwo" layoutX="175.0" layoutY="280.0" mnemonicParsing="false" onAction="#One" text="Two" />
+      <ImageView fitHeight="255.0" fitWidth="367.0" layoutX="109.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+      <ToggleButton id="btnButtonFive" fx:id="btnButtonFive" layoutX="358.0" layoutY="280.0" mnemonicParsing="false" onAction="#One" text="Five" />
+      <ToggleButton id="btnButtonSix" fx:id="btnButtonSix" layoutX="416.0" layoutY="280.0" mnemonicParsing="false" onAction="#One" text="Six" />
+   </children>
 </AnchorPane>
