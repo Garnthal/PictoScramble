@@ -6,6 +6,7 @@
 package pictoscramble;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +20,7 @@ import javafx.scene.control.ToggleButton;
  */
 public class BeginnerLevelController implements Initializable {
 
-    @FXML
+        @FXML
         private ToggleButton btnButtonOne;
         @FXML
         private ToggleButton btnButtonTwo;
@@ -31,6 +32,52 @@ public class BeginnerLevelController implements Initializable {
         private ToggleButton btnButtonFive;
         @FXML
         private ToggleButton btnButtonSix;
+        
+        public ToggleButton[] arrayButtons;
+        
+        String[] arrayWords = new String[10];
+        
+        DBManager DBManager;
+        
+        public BeginnerLevelController() throws SQLException
+        {
+            try{
+            DBManager = new DBManager();
+            }catch(SQLException ex)
+            {
+                
+            }
+            
+            
+                
+            arrayWords = DBManager.getWords();
+            
+            
+                for(int i = 0; i < arrayWords.length; i++){
+                   
+                    for(int j = 0; j < arrayButtons.length; j++){
+                       
+                        arrayButtons[j].toString();
+                        
+               
+                    }
+                    
+                    
+                }
+            
+        }
+        
+        public void initializeToggleButtonArray() { 
+
+            arrayButtons = new ToggleButton[6];  
+            arrayButtons[1] = btnButtonOne;
+            arrayButtons[2] = btnButtonTwo;
+            arrayButtons[3] = btnButtonThree;
+            arrayButtons[4] = btnButtonFour;
+            arrayButtons[5] = btnButtonFive;
+            arrayButtons[6] = btnButtonSix;
+        }
+        
         @FXML
     private void One(ActionEvent event){
         double btnButtonOnex = btnButtonOne.getLayoutX();
@@ -133,7 +180,7 @@ public class BeginnerLevelController implements Initializable {
                 btnButtonSix.setLayoutY(btnButtonTwoy);
                 
                 btnButtonTwo.setSelected(false);
-                btnButtonSix.setSelected(false);;
+                btnButtonSix.setSelected(false);
                 
         }else if(btnButtonThree.isSelected()&&btnButtonFour.isSelected()){
             
@@ -209,6 +256,8 @@ public class BeginnerLevelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        initializeToggleButtonArray();
+        
     }    
     
 }
