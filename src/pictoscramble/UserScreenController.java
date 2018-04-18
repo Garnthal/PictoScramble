@@ -44,7 +44,6 @@ public class UserScreenController implements Initializable {
     @FXML
     private TextField txtNewUser;
     
-    
     final ObservableList<String> listItems = FXCollections.observableArrayList(); 
    
     @FXML
@@ -60,7 +59,7 @@ public class UserScreenController implements Initializable {
             }else{
                 
                 listItems.add(txtNewUser.getText());
-        
+                
                 txtNewUser.setVisible(false);
                 btnAdd.setVisible(false);
                 btnCancel.setVisible(false);
@@ -74,8 +73,6 @@ public class UserScreenController implements Initializable {
         txtNewUser.setVisible(true);
         btnAdd.setVisible(true);
         btnCancel.setVisible(true);
-       
-
         
     }
      

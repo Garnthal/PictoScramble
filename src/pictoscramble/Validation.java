@@ -5,7 +5,6 @@
  */
 package pictoscramble;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -14,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public class Validation {
     
-   // String username = txtNewUser.getText();
+     String user;
     //private Pattern pattern;
     //private Matcher matcher;
     
@@ -26,11 +25,28 @@ public class Validation {
         validUsername[1] = Pattern.compile(".*[a-z].*");        
     }
 
-    public boolean isLegalUsername(String username) {
+    public boolean isLegalUsername(String user) {
         for (int i = 0; i < validUsername.length; i++){
-            if(!validUsername[i].matcher(username).matches())
+            if(!validUsername[i].matcher(user).matches())
                 return false;
         }
         return true;
     }
+    
+    private static final Pattern [] validAdmin = new Pattern[2]; {
+    
+        validAdmin[0] = Pattern.compile(".*[A-Z].*");
+        validAdmin[1] = Pattern.compile(".*[a-z].*");
 }
+    
+    public boolean isLegalAdmin(String admin) {
+        for (int i = 0; i < validAdmin.length; i++){
+            if(!validAdmin[i].matcher(admin).matches())
+                return false;
+        }
+        return true;
+    }  
+    
+    
+}
+
