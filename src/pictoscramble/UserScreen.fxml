@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" minHeight="362.0" prefHeight="396.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pictoscramble.UserScreenController">
+<AnchorPane id="AnchorPane" minHeight="362.0" prefHeight="396.0" prefWidth="599.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="pictoscramble.UserScreenController">
   <children>
     <Button id="btnNewUser" layoutX="249.0" layoutY="348.0" onAction="#NewUser" text="New User">
       <font>
@@ -26,5 +26,6 @@
       </font>
     </Button>
     <Button fx:id="btnCancel" font="$x2" layoutX="307.0" layoutY="297.0" onAction="#Cancel" text="Cancel" visible="false" />
+    <Button id="btnAdmin" font="$x1" layoutX="512.0" layoutY="305.0" onAction="#Admin" text="Admin" />
   </children>
 </AnchorPane>

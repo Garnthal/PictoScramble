@@ -116,6 +116,12 @@ public class UserScreenController implements Initializable {
         
     }
     
+    @FXML
+    
+    private void Admin(ActionEvent event) throws IOException{
+        homeStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("AdminScreen.fxml"))));
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
