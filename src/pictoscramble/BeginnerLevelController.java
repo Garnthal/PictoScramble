@@ -37,24 +37,17 @@ public class BeginnerLevelController implements Initializable {
         @FXML
         private ToggleButton btnButtonSix;
         
-        public ToggleButton[] arrayButtonsOne;
-        public ToggleButton[] arrayButtonsTwo;
-        public ToggleButton[] arrayButtonsThree;
-        public ToggleButton[] arrayButtonsFour;
+        public ToggleButton[] arrayButtons;
         
-        String[] arrayWords = new String[]{"apples", "crate", "bridge", "dogs", "eggs", "frog", "gold", "house", "jet", "tree"}; 
-
+//        String[] arrayWords = new String[]{"apples", "crate", "bridge", "dogs", "eggs", "frog", "gold", "house", "jet", "tree"}; 
+        
+        
 //        DBManager DBManager;
         
         int index;
         String temp;
         
-        int nextIndex = 0;
-        
         String[] currWord = new String[6];
-        String[] currWordTwo = new String[5];
-        String[] currWordThree = new String[4];
-        String[] currWordFour = new String [3];
         
         Random rnd = new Random();
         
@@ -76,63 +69,21 @@ public class BeginnerLevelController implements Initializable {
             //splits the word so each letter is an individual string in a string array
             //currWord = arrayWords[].split("(?!^)");
            
-            switch(arrayWords.length)
-            {
-                case 3:
-                    currWordFour = arrayWords[index].split("(?!^)");
-                    //randomizes the letters of the word
-                    for (int i = currWordFour.length - 1; i > 0; i--)
-                    {
-                        index = rnd.nextInt(i + 1);
-                        if (index != i)
-                        {
-                            temp = currWordFour[index];
-                            currWordFour[index] = currWordFour[i];
-                            currWordFour[i] = temp;
-                        }
-                    } break;
-                case 4:
-                    currWordThree = arrayWords[nextIndex++].split("(?!^)");
-                    for (int i = currWordThree.length - 1; i > 0; i--)
-                    {
-                        index = rnd.nextInt(i + 1);
-                        if (index != i)
-                        {
-                            temp = currWordThree[index];
-                            currWordThree[index] = currWordThree[i];
-                            currWordThree[i] = temp;
-                        }
-                        
-                    }break;
-                case 5:
-                    currWordTwo = arrayWords[nextIndex++].split("(?!^)");
-                    for (int i = currWordTwo.length - 1; i > 0; i--)
-                    {
-                        index = rnd.nextInt(i + 1);
-                        if (index != i)
-                        {
-                            temp = currWordTwo[index];
-                            currWordTwo[index] = currWordTwo[i];
-                            currWordTwo[i] = temp;
-                        }
-                        
-                    }break;
-                case 6:
-                    currWord = arrayWords[nextIndex++].split("(?!^)");
-                    for (int i = currWord.length - 1; i > 0; i--)
-                    {
-                        index = rnd.nextInt(i + 1);
-                        if (index != i)
-                        {
-                            temp = currWord[index];
-                            currWord[index] = currWord[i];
-                            currWord[i] = temp;
-                        }
-                        
-                    }break;
-                default:
-                    break;
-            }
+            
+//            currWord = "apples".split("(?!^)");
+//            
+//        
+//            //randomizes the letters of the word
+//            for (int i = currWord.length - 1; i > 0; i--)
+//            {
+//                index = rnd.nextInt(i + 1);
+//                if (index != i)
+//                {
+//                    temp = currWord[index];
+//                    currWord[index] = currWord[i];
+//                    currWord[i] = temp;
+//                }
+//            }
           
 //                    
 //            switch (currWord.length) {
@@ -183,71 +134,45 @@ public class BeginnerLevelController implements Initializable {
         
         public void initializeToggleButtonArray() { 
 
-            arrayButtonsOne = new ToggleButton[6];  
-            arrayButtonsOne[0] = btnButtonOne;
-            arrayButtonsOne[1] = btnButtonTwo;
-            arrayButtonsOne[2] = btnButtonThree;
-            arrayButtonsOne[3] = btnButtonFour;
-            arrayButtonsOne[4] = btnButtonFive;
-            arrayButtonsOne[5] = btnButtonSix;
+            arrayButtons = new ToggleButton[6];  
+            arrayButtons[0] = btnButtonOne;
+            arrayButtons[1] = btnButtonTwo;
+            arrayButtons[2] = btnButtonThree;
+            arrayButtons[3] = btnButtonFour;
+            arrayButtons[4] = btnButtonFive;
+            arrayButtons[5] = btnButtonSix;
             
-            arrayButtonsTwo = new ToggleButton[5];  
-            arrayButtonsTwo[0] = btnButtonOne;
-            arrayButtonsTwo[1] = btnButtonTwo;
-            arrayButtonsTwo[2] = btnButtonThree;
-            arrayButtonsTwo[3] = btnButtonFour;
-            arrayButtonsTwo[4] = btnButtonFive;
+//            arrayButtonsTwo = new ToggleButton[5];  
+//            arrayButtonsTwo[0] = btnButtonOne;
+//            arrayButtonsTwo[1] = btnButtonTwo;
+//            arrayButtonsTwo[2] = btnButtonThree;
+//            arrayButtonsTwo[3] = btnButtonFour;
+//            arrayButtonsTwo[4] = btnButtonFive;
+//            
+//            arrayButtonsThree = new ToggleButton[4];  
+//            arrayButtonsThree[0] = btnButtonOne;
+//            arrayButtonsThree[1] = btnButtonTwo;
+//            arrayButtonsThree[2] = btnButtonThree;
+//            arrayButtonsThree[3] = btnButtonFour;
+            currWord = "apples".split("(?!^)");
+           
+            //randomizes the letters of the word
+            for (int i = currWord.length - 1; i > 0; i--)
+            {
+                index = rnd.nextInt(i + 1);
+                if (index != i)
+                {
+                    temp = currWord[index];
+                    currWord[index] = currWord[i];
+                    currWord[i] = temp;
+                }
+            }
             
-            arrayButtonsThree = new ToggleButton[4];  
-            arrayButtonsThree[0] = btnButtonOne;
-            arrayButtonsThree[1] = btnButtonTwo;
-            arrayButtonsThree[2] = btnButtonThree;
-            arrayButtonsThree[3] = btnButtonFour;
             
-            arrayButtonsFour = new ToggleButton[3];  
-            arrayButtonsFour[0] = btnButtonOne;
-            arrayButtonsFour[1] = btnButtonTwo;
-            arrayButtonsFour[2] = btnButtonThree;
-
-            switch (currWord.length) {
-                case 3:
-                    arrayButtonsFour[currWordFour.length].setVisible(true);
-                    arrayButtonsFour[currWordFour.length].setDisable(false);
-                    for(int i = 0; i < arrayButtonsFour.length; i++)
-                    {
-                        for (String currWordFour1 : currWordFour) {
-                            arrayButtonsFour[i].setText(currWordFour[i]);
-                        }
-                    }       break;
-                case 4:
-                    arrayButtonsThree[currWordThree.length].setVisible(true);
-                    arrayButtonsThree[currWordThree.length].setDisable(false);
-                    for(int i = 0; i < arrayButtonsThree.length; i++)
-                    {
-                        for (String currWordThree1 : currWordThree) {
-                            arrayButtonsThree[i].setText(currWordThree[i]);
-                        }
-                    }       break;
-                case 5:
-                    arrayButtonsTwo[currWordTwo.length].setVisible(true);
-                    arrayButtonsTwo[currWordTwo.length].setDisable(false);
-                    for(int i = 0; i < arrayButtonsTwo.length; i++)
-                    {
-                        for (String currWordTwo1 : currWordTwo) {
-                            arrayButtonsTwo[i].setText(currWordTwo[i]);
-                        }
-                    }       break;
-                case 6:
-                    arrayButtonsOne[currWord.length].setVisible(true);
-                    arrayButtonsOne[currWord.length].setDisable(false);
-                    for(int i = 0; i < arrayButtonsOne.length; i++)
-                    {
-                        for (String currWord1 : currWord) {
-                            arrayButtonsOne[i].setText(currWord[i]);
-                        }
-                    }       break;
-                default:
-                    break;
+                
+                    for(int i = 0; i < arrayButtons.length; i++)
+            {
+                arrayButtons[i].setText(currWord[index]);
             }
         }
         
@@ -421,13 +346,13 @@ public class BeginnerLevelController implements Initializable {
     
     @FXML
     private void Next(ActionEvent event){
-       
+        
 //            prevWord = currWord;
 
             //splits the word so each letter is an individual string in a string array
 //            currWord = arrayWords[index].split("(?!^)");
             
-            currWord = arrayWords[nextIndex++].split("(?!^)");
+            currWord = "apples".split("(?!^)");
            
             //randomizes the letters of the word
             for (int i = currWord.length - 1; i > 0; i--)
@@ -443,62 +368,9 @@ public class BeginnerLevelController implements Initializable {
             
             
                 
-           switch(arrayWords.length)
+                    for(int i = 0; i < arrayButtons.length; i++)
             {
-                case 3:
-                    currWordFour = arrayWords[nextIndex++].split("(?!^)");
-                    //randomizes the letters of the word
-                    for (int i = currWordFour.length - 1; i > 0; i--)
-                    {
-                        index = rnd.nextInt(i + 1);
-                        if (index != i)
-                        {
-                            temp = currWordFour[index];
-                            currWordFour[index] = currWordFour[i];
-                            currWordFour[i] = temp;
-                        }
-                    } break;
-                case 4:
-                    currWordThree = arrayWords[nextIndex++].split("(?!^)");
-                    for (int i = currWordThree.length - 1; i > 0; i--)
-                    {
-                        index = rnd.nextInt(i + 1);
-                        if (index != i)
-                        {
-                            temp = currWordThree[index];
-                            currWordThree[index] = currWordThree[i];
-                            currWordThree[i] = temp;
-                        }
-                        
-                    }break;
-                case 5:
-                    currWordTwo = arrayWords[nextIndex++].split("(?!^)");
-                    for (int i = currWordTwo.length - 1; i > 0; i--)
-                    {
-                        index = rnd.nextInt(i + 1);
-                        if (index != i)
-                        {
-                            temp = currWordTwo[index];
-                            currWordTwo[index] = currWordTwo[i];
-                            currWordTwo[i] = temp;
-                        }
-                        
-                    }break;
-                case 6:
-                    currWord = arrayWords[nextIndex++].split("(?!^)");
-                    for (int i = currWord.length - 1; i > 0; i--)
-                    {
-                        index = rnd.nextInt(i + 1);
-                        if (index != i)
-                        {
-                            temp = currWord[index];
-                            currWord[index] = currWord[i];
-                            currWord[i] = temp;
-                        }
-                        
-                    }break;
-                default:
-                    break;
+                arrayButtons[i].setText(currWord[i]);
             }
         
 
