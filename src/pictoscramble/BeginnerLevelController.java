@@ -172,7 +172,7 @@ public class BeginnerLevelController implements Initializable {
                 
                     for(int i = 0; i < arrayButtons.length; i++)
             {
-                arrayButtons[i].setText(currWord[index]);
+                arrayButtons[i].setText(currWord[i]);
             }
         }
         
