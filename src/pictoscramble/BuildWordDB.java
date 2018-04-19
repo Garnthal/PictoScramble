@@ -7,9 +7,7 @@ package pictoscramble;
  */
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  *
@@ -20,7 +18,7 @@ public class BuildWordDB {
                       throws Exception
    {
       final String DB_URL =
-            "jdbc:derby:EntertainmentDB;create=true";
+            "jdbc:derby://Localhost:1527/PictoDB";
             
       try
       {    
@@ -34,8 +32,6 @@ public class BuildWordDB {
          // Create the Dvd table.
          System.out.println("Creating the table...");
          stmt.execute("CREATE TABLE WORDS ("    +
-
-                      "No_id INTEGER, "   +
 
                       "Word_id INTEGER, "   +
 
