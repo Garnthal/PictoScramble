@@ -1,7 +1,5 @@
 package pictoscramble;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,7 +22,7 @@ public class BuildUserDB {
                       throws Exception
    {
       final String DB_URL =
-            "jdbc:derby:EntertainmentDB;create=true";
+            "jdbc:derby://Localhost:1527/PictoDB";
             
       try
       {    
