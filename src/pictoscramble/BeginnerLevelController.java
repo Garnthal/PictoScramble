@@ -7,10 +7,12 @@ package pictoscramble;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 
 /**
@@ -20,6 +22,8 @@ import javafx.scene.control.ToggleButton;
  */
 public class BeginnerLevelController implements Initializable {
 
+        @FXML
+        private Button btnNext;
         @FXML
         private ToggleButton btnButtonOne;
         @FXML
@@ -33,49 +37,218 @@ public class BeginnerLevelController implements Initializable {
         @FXML
         private ToggleButton btnButtonSix;
         
-        public ToggleButton[] arrayButtons;
+        public ToggleButton[] arrayButtonsOne;
+        public ToggleButton[] arrayButtonsTwo;
+        public ToggleButton[] arrayButtonsThree;
+        public ToggleButton[] arrayButtonsFour;
         
-        String[] arrayWords = new String[10];
+        String[] arrayWords = new String[]{"apples", "crate", "bridge", "dogs", "eggs", "frog", "gold", "house", "jet", "tree"}; 
+
+//        DBManager DBManager;
         
-        DBManager DBManager;
+        int index;
+        String temp;
         
+        int nextIndex = 0;
+        
+        String[] currWord = new String[6];
+        String[] currWordTwo = new String[5];
+        String[] currWordThree = new String[4];
+        String[] currWordFour = new String [3];
+        
+        Random rnd = new Random();
+        
+  
         public BeginnerLevelController() throws SQLException
         {
-            try{
-            DBManager = new DBManager();
-            }catch(SQLException ex)
+//            try{
+//            DBManager = new DBManager();
+//            }catch(SQLException ex)
+//            {
+//                
+//            }
+//            
+//            
+//                
+//            arrayWords = DBManager.getWords();
+            
+              
+            //splits the word so each letter is an individual string in a string array
+            //currWord = arrayWords[].split("(?!^)");
+           
+            switch(arrayWords.length)
             {
-                
-            }
-            
-            
-                
-            arrayWords = DBManager.getWords();
-            
-            
-                for(int i = 0; i < arrayWords.length; i++){
-                   
-                    for(int j = 0; j < arrayButtons.length; j++){
-                       
-                        arrayButtons[j].toString();
+                case 3:
+                    currWordFour = arrayWords[index].split("(?!^)");
+                    //randomizes the letters of the word
+                    for (int i = currWordFour.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordFour[index];
+                            currWordFour[index] = currWordFour[i];
+                            currWordFour[i] = temp;
+                        }
+                    } break;
+                case 4:
+                    currWordThree = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWordThree.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordThree[index];
+                            currWordThree[index] = currWordThree[i];
+                            currWordThree[i] = temp;
+                        }
                         
-               
-                    }
-                    
-                    
-                }
+                    }break;
+                case 5:
+                    currWordTwo = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWordTwo.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordTwo[index];
+                            currWordTwo[index] = currWordTwo[i];
+                            currWordTwo[i] = temp;
+                        }
+                        
+                    }break;
+                case 6:
+                    currWord = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWord.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWord[index];
+                            currWord[index] = currWord[i];
+                            currWord[i] = temp;
+                        }
+                        
+                    }break;
+                default:
+                    break;
+            }
+          
+//                    
+//            switch (currWord.length) {
+//                case 4:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(false);
+//                    btnButtonSix.setVisible(false);
+//                    for(int i = 0; i < arrayButtonsThree.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsThree[i].setText(currWord[i]);
+//                        }
+//                    }       break;
+//                case 5:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(true);
+//                    btnButtonSix.setVisible(false);
+//                    for(int i = 0; i < arrayButtonsTwo.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsTwo[i].setText(currWord[i]);
+//                        }
+//                    }   break;
+//                case 6:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(true);
+//                    btnButtonSix.setVisible(true);
+//                    for(int i = 0; i < arrayButtonsOne.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsOne[i].setText(currWord[i]);
+//                        }
+//                    }   break;
+//                default:
+//                    break;
+//            }
             
         }
         
         public void initializeToggleButtonArray() { 
 
-            arrayButtons = new ToggleButton[6];  
-            arrayButtons[1] = btnButtonOne;
-            arrayButtons[2] = btnButtonTwo;
-            arrayButtons[3] = btnButtonThree;
-            arrayButtons[4] = btnButtonFour;
-            arrayButtons[5] = btnButtonFive;
-            arrayButtons[6] = btnButtonSix;
+            arrayButtonsOne = new ToggleButton[6];  
+            arrayButtonsOne[0] = btnButtonOne;
+            arrayButtonsOne[1] = btnButtonTwo;
+            arrayButtonsOne[2] = btnButtonThree;
+            arrayButtonsOne[3] = btnButtonFour;
+            arrayButtonsOne[4] = btnButtonFive;
+            arrayButtonsOne[5] = btnButtonSix;
+            
+            arrayButtonsTwo = new ToggleButton[5];  
+            arrayButtonsTwo[0] = btnButtonOne;
+            arrayButtonsTwo[1] = btnButtonTwo;
+            arrayButtonsTwo[2] = btnButtonThree;
+            arrayButtonsTwo[3] = btnButtonFour;
+            arrayButtonsTwo[4] = btnButtonFive;
+            
+            arrayButtonsThree = new ToggleButton[4];  
+            arrayButtonsThree[0] = btnButtonOne;
+            arrayButtonsThree[1] = btnButtonTwo;
+            arrayButtonsThree[2] = btnButtonThree;
+            arrayButtonsThree[3] = btnButtonFour;
+            
+            arrayButtonsFour = new ToggleButton[3];  
+            arrayButtonsFour[0] = btnButtonOne;
+            arrayButtonsFour[1] = btnButtonTwo;
+            arrayButtonsFour[2] = btnButtonThree;
+
+            switch (currWord.length) {
+                case 3:
+                    arrayButtonsFour[currWordFour.length].setVisible(true);
+                    arrayButtonsFour[currWordFour.length].setDisable(false);
+                    for(int i = 0; i < arrayButtonsFour.length; i++)
+                    {
+                        for (String currWordFour1 : currWordFour) {
+                            arrayButtonsFour[i].setText(currWordFour[i]);
+                        }
+                    }       break;
+                case 4:
+                    arrayButtonsThree[currWordThree.length].setVisible(true);
+                    arrayButtonsThree[currWordThree.length].setDisable(false);
+                    for(int i = 0; i < arrayButtonsThree.length; i++)
+                    {
+                        for (String currWordThree1 : currWordThree) {
+                            arrayButtonsThree[i].setText(currWordThree[i]);
+                        }
+                    }       break;
+                case 5:
+                    arrayButtonsTwo[currWordTwo.length].setVisible(true);
+                    arrayButtonsTwo[currWordTwo.length].setDisable(false);
+                    for(int i = 0; i < arrayButtonsTwo.length; i++)
+                    {
+                        for (String currWordTwo1 : currWordTwo) {
+                            arrayButtonsTwo[i].setText(currWordTwo[i]);
+                        }
+                    }       break;
+                case 6:
+                    arrayButtonsOne[currWord.length].setVisible(true);
+                    arrayButtonsOne[currWord.length].setDisable(false);
+                    for(int i = 0; i < arrayButtonsOne.length; i++)
+                    {
+                        for (String currWord1 : currWord) {
+                            arrayButtonsOne[i].setText(currWord[i]);
+                        }
+                    }       break;
+                default:
+                    break;
+            }
         }
         
         @FXML
@@ -245,6 +418,202 @@ public class BeginnerLevelController implements Initializable {
         }
         
     }
+    
+    @FXML
+    private void Next(ActionEvent event){
+       
+//            prevWord = currWord;
+
+            //splits the word so each letter is an individual string in a string array
+//            currWord = arrayWords[index].split("(?!^)");
+            
+            currWord = arrayWords[nextIndex++].split("(?!^)");
+           
+            //randomizes the letters of the word
+            for (int i = currWord.length - 1; i > 0; i--)
+            {
+                index = rnd.nextInt(i + 1);
+                if (index != i)
+                {
+                    temp = currWord[index];
+                    currWord[index] = currWord[i];
+                    currWord[i] = temp;
+                }
+            }
+            
+            
+                
+           switch(arrayWords.length)
+            {
+                case 3:
+                    currWordFour = arrayWords[nextIndex++].split("(?!^)");
+                    //randomizes the letters of the word
+                    for (int i = currWordFour.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordFour[index];
+                            currWordFour[index] = currWordFour[i];
+                            currWordFour[i] = temp;
+                        }
+                    } break;
+                case 4:
+                    currWordThree = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWordThree.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordThree[index];
+                            currWordThree[index] = currWordThree[i];
+                            currWordThree[i] = temp;
+                        }
+                        
+                    }break;
+                case 5:
+                    currWordTwo = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWordTwo.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordTwo[index];
+                            currWordTwo[index] = currWordTwo[i];
+                            currWordTwo[i] = temp;
+                        }
+                        
+                    }break;
+                case 6:
+                    currWord = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWord.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWord[index];
+                            currWord[index] = currWord[i];
+                            currWord[i] = temp;
+                        }
+                        
+                    }break;
+                default:
+                    break;
+            }
+        
+
+            
+            
+//            switch (currWord.length) {
+//                case 4:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(false);
+//                    btnButtonSix.setVisible(false);
+//                    for(int i = 0; i < arrayButtonsOne.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsOne[i].setText(currWord[i]);
+//                        }
+//                    }       break;
+//                case 5:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(true);
+//                    btnButtonSix.setVisible(false);
+//                    for(int i = 0; i < arrayButtonsTwo.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsTwo[i].setText(currWord[i]);
+//                        }
+//                    }   break;
+//                case 6:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(false);
+//                    btnButtonSix.setVisible(true);
+//                    for(int i = 0; i < arrayButtonsThree.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsThree[i].setText(currWord[i]);
+//                        }
+//                    }   break;
+//                default:
+//                    break;
+//            }
+        
+    }
+    
+//        @FXML
+//    private void Prev(ActionEvent event){
+//            
+//            //splits the word so each letter is an individual string in a string array
+////            currWord = arrayWords[index].split("(?!^)");
+//            currWord = prevWord[index].split("(?!^)");
+//            //randomizes the letters of the word
+//            for (int i = currWord.length - 1; i > 0; i--)
+//            {
+//                index = rnd.nextInt(i + 1);
+//                if (index != i)
+//                {
+//                    temp = currWord[index];
+//                    currWord[index] = currWord[i];
+//                    currWord[i] = temp;
+//                }
+//            }
+//            
+//            switch (currWord.length) {
+//                case 4:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(false);
+//                    btnButtonSix.setVisible(true);
+//                    for(int i = 0; i < arrayButtonsThree.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsThree[i].setText(currWord[i]);
+//                        }
+//                    }       break;
+//                case 5:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(true);
+//                    btnButtonSix.setVisible(false);
+//                    for(int i = 0; i < arrayButtonsTwo.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsTwo[i].setText(currWord[i]);
+//                        }
+//                    }   break;
+//                case 6:
+//                    btnButtonOne.setVisible(true);
+//                    btnButtonTwo.setVisible(true);
+//                    btnButtonThree.setVisible(true);
+//                    btnButtonFour.setVisible(true);
+//                    btnButtonFive.setVisible(false);
+//                    btnButtonSix.setVisible(false);
+//                    for(int i = 0; i < arrayButtonsOne.length; i++)
+//                    {
+//                        for(int j = 0; j < currWord.length; j++){
+//                            arrayButtonsOne[i].setText(currWord[i]);
+//                        }
+//                    }   break;
+//                default:
+//                    break;
+//            }
+//        
+//        
+//    }
     
     
     
