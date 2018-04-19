@@ -40,6 +40,7 @@ public class BeginnerLevelController implements Initializable {
         public ToggleButton[] arrayButtonsOne;
         public ToggleButton[] arrayButtonsTwo;
         public ToggleButton[] arrayButtonsThree;
+        public ToggleButton[] arrayButtonsFour;
         
         String[] arrayWords = new String[]{"apples", "crate", "bridge", "dogs", "eggs", "frog", "gold", "house", "jet", "tree"}; 
 
@@ -202,31 +203,52 @@ public class BeginnerLevelController implements Initializable {
             arrayButtonsThree[1] = btnButtonTwo;
             arrayButtonsThree[2] = btnButtonThree;
             arrayButtonsThree[3] = btnButtonFour;
-        if(currWord.length == 6){
-            arrayButtonsOne[currWord.length].setVisible(true);
-            for(int i = 0; i < arrayButtonsOne.length; i++)
-            {
-                for(int j = 0; j < currWord.length; j++){
-                    arrayButtonsTwo[i].setText(currWord[i]);
-                }
+            
+            arrayButtonsFour = new ToggleButton[3];  
+            arrayButtonsFour[0] = btnButtonOne;
+            arrayButtonsFour[1] = btnButtonTwo;
+            arrayButtonsFour[2] = btnButtonThree;
+
+            switch (currWord.length) {
+                case 3:
+                    arrayButtonsFour[currWordFour.length].setVisible(true);
+                    arrayButtonsFour[currWordFour.length].setDisable(false);
+                    for(int i = 0; i < arrayButtonsFour.length; i++)
+                    {
+                        for (String currWordFour1 : currWordFour) {
+                            arrayButtonsFour[i].setText(currWordFour[i]);
+                        }
+                    }       break;
+                case 4:
+                    arrayButtonsThree[currWordThree.length].setVisible(true);
+                    arrayButtonsThree[currWordThree.length].setDisable(false);
+                    for(int i = 0; i < arrayButtonsThree.length; i++)
+                    {
+                        for (String currWordThree1 : currWordThree) {
+                            arrayButtonsThree[i].setText(currWordThree[i]);
+                        }
+                    }       break;
+                case 5:
+                    arrayButtonsTwo[currWordTwo.length].setVisible(true);
+                    arrayButtonsTwo[currWordTwo.length].setDisable(false);
+                    for(int i = 0; i < arrayButtonsTwo.length; i++)
+                    {
+                        for (String currWordTwo1 : currWordTwo) {
+                            arrayButtonsTwo[i].setText(currWordTwo[i]);
+                        }
+                    }       break;
+                case 6:
+                    arrayButtonsOne[currWord.length].setVisible(true);
+                    arrayButtonsOne[currWord.length].setDisable(false);
+                    for(int i = 0; i < arrayButtonsOne.length; i++)
+                    {
+                        for (String currWord1 : currWord) {
+                            arrayButtonsOne[i].setText(currWord[i]);
+                        }
+                    }       break;
+                default:
+                    break;
             }
-        }else if(currWord.length == 5){
-            arrayButtonsTwo[currWord.length].setVisible(true);
-            for(int i = 0; i < arrayButtonsTwo.length; i++)
-            {
-                for(int j = 0; j < currWord.length; j++){
-                    arrayButtonsTwo[i].setText(currWord[i]);
-                }
-            }
-        }else if(currWord.length == 4){
-            arrayButtonsThree[currWord.length].setVisible(true);
-            for(int i = 0; i < arrayButtonsThree.length; i++)
-            {
-                for(int j = 0; j < currWord.length; j++){
-                    arrayButtonsThree[i].setText(currWord[i]);
-                }
-            }
-        }
         }
         
         @FXML
