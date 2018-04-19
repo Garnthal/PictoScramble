@@ -44,6 +44,24 @@ public class UserScreenController implements Initializable {
     @FXML
     private TextField txtNewUser;
     
+    Validation validation;
+    
+    //public UserScreenController() {
+    //Validation validation = new Validation();
+    //txtNewUser = validation.isLegalUsername();
+    
+   // if(!TextField.getText().validUsername()){
+        
+   // };
+//}
+    
+    
+ public boolean isValidName(String s){      
+     String regex="[A-Za-z\\s]+";      
+      return s.matches(regex);
+ }
+
+    
     final ObservableList<String> listItems = FXCollections.observableArrayList(); 
    
     @FXML
@@ -52,17 +70,17 @@ public class UserScreenController implements Initializable {
         if (ke.getCode().equals(KeyCode.ENTER))
         {
             //Ensures that null values aren't usable
-            if(txtNewUser.getText().equals("")){
-                
-                txtNewUser.setPromptText("Enter first name");
-                
-            }else{
+            if(isValidName(txtNewUser.getText())){
                 
                 listItems.add(txtNewUser.getText());
                 
                 txtNewUser.setVisible(false);
                 btnAdd.setVisible(false);
                 btnCancel.setVisible(false);
+                
+            }else{
+                txtNewUser.setPromptText("Enter first name");
+                
             }
         }
     }
@@ -80,18 +98,19 @@ public class UserScreenController implements Initializable {
     private void Add(ActionEvent event){
         
          //Ensures that null values aren't usable
-        if(txtNewUser.getText().equals("")){
-            
-            txtNewUser.setPromptText("Enter first name");
-            
-        }else{
-        listItems.add(txtNewUser.getText());
-        
-        txtNewUser.setVisible(false);
-        btnAdd.setVisible(false);
-        btnCancel.setVisible(false);
+            if(isValidName(txtNewUser.getText())){
+                
+                listItems.add(txtNewUser.getText());
+                
+                txtNewUser.setVisible(false);
+                btnAdd.setVisible(false);
+                btnCancel.setVisible(false);
+                
+            }else{
+                txtNewUser.setPromptText("Enter first name");
+                
+            }
         }
-    }
     
     @FXML
     private void Cancel(ActionEvent event){

@@ -42,32 +42,45 @@ public class AdminScreenController implements Initializable {
     
     final ObservableList<String> listItems = FXCollections.observableArrayList();
     
+     public boolean isValidAdmin(String s){      
+     String regex="[A-Za-z\\s]+";      
+      return s.matches(regex);
+ }
+     
+     public boolean isValidPassword(String s) {
+         String regex="^[a-z0-9_-]{3,15}$";
+         return s.matches(regex);
+     }
+    
     @FXML
     public void handle(KeyEvent ke)
     {
         if (ke.getCode().equals(KeyCode.ENTER))
         {
             //Ensures that null values aren't usable
-           if(txtNewAdmin.getText().equals("")){
+            if(isValidAdmin(txtNewAdmin.getText())){
+                
+                listItems.add(txtNewAdmin.getText());
+                
+                txtNewAdmin.setVisible(false);
+                btnAdd.setVisible(false);
+                btnCancel.setVisible(false);
+                
+            }else{
+                txtNewAdmin.setPromptText("Enter first name");
+                
+            }
                
-                txtNewAdmin.setPromptText("Enter your name");
-            }else{              
-               listItems.add(txtNewAdmin.getText());
+           if(isValidPassword(txtPassword.getText())){
                
                txtNewAdmin.setVisible(false);
                txtPassword.setVisible(false);
                btnAdd.setVisible(false);
                btnCancel.setVisible(false);
-           }
-               
-           if(txtPassword.getText().equals("")) {
-            txtPassword.setPromptText("Enter your password");
-            }else{
             
-            txtNewAdmin.setVisible(false);
-               txtPassword.setVisible(false);
-               btnAdd.setVisible(false);
-               btnCancel.setVisible(false);
+           }else{
+            
+               txtPassword.setPromptText("Enter your password");
             }    
            }
         }
@@ -85,23 +98,31 @@ public class AdminScreenController implements Initializable {
     @FXML
     private void Add(ActionEvent event){
  
-        if(txtNewAdmin.getText().equals("")){
-            txtNewAdmin.setPromptText("Enter your name");
-        }else{
-        listItems.add(txtNewAdmin.getText());
-        
-        if(txtPassword.getText().equals("")) {
-            txtPassword.setPromptText("Enter your password");
-        }else{
-            listItems.add(txtPassword.getText());
-        }
-        
-        txtNewAdmin.setVisible(false);
-        txtPassword.setVisible(false);
-        btnAdd.setVisible(false);
-        btnCancel.setVisible(false);
-        }
-    }
+         if(isValidAdmin(txtNewAdmin.getText())){
+                
+                listItems.add(txtNewAdmin.getText());
+                
+                txtNewAdmin.setVisible(false);
+                btnAdd.setVisible(false);
+                btnCancel.setVisible(false);
+                
+            }else{
+                txtNewAdmin.setPromptText("Enter first name");
+                
+            }
+               
+           if(isValidPassword(txtPassword.getText())){
+               
+               txtNewAdmin.setVisible(false);
+               txtPassword.setVisible(false);
+               btnAdd.setVisible(false);
+               btnCancel.setVisible(false);
+            
+           }else{
+            
+               txtPassword.setPromptText("Enter your password");
+            }    
+           }
     
     @FXML
     private void Cancel(ActionEvent event){
