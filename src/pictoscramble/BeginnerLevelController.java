@@ -91,6 +91,33 @@ public class BeginnerLevelController implements Initializable {
                         }
                     } break;
                 case 4:
+                    currWordThree = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWordThree.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordThree[index];
+                            currWordThree[index] = currWordThree[i];
+                            currWordThree[i] = temp;
+                        }
+                        
+                    }break;
+                case 5:
+                    currWordTwo = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWordTwo.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordTwo[index];
+                            currWordTwo[index] = currWordTwo[i];
+                            currWordTwo[i] = temp;
+                        }
+                        
+                    }break;
+                case 6:
+                    currWord = arrayWords[nextIndex++].split("(?!^)");
                     for (int i = currWord.length - 1; i > 0; i--)
                     {
                         index = rnd.nextInt(i + 1);
@@ -102,6 +129,9 @@ public class BeginnerLevelController implements Initializable {
                         }
                         
                     }break;
+                default:
+                    break;
+            }
           
 //                    
 //            switch (currWord.length) {
@@ -391,31 +421,63 @@ public class BeginnerLevelController implements Initializable {
             
             
                 
-           if(currWord.length == 6){
-            arrayButtonsOne[currWord.length].setVisible(true);
-            for(int i = 0; i < arrayButtonsOne.length; i++)
+           switch(arrayWords.length)
             {
-                for(int j = 0; j < currWord.length; j++){
-                    arrayButtonsTwo[i].setText(currWord[i]);
-                }
+                case 3:
+                    currWordFour = arrayWords[nextIndex++].split("(?!^)");
+                    //randomizes the letters of the word
+                    for (int i = currWordFour.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordFour[index];
+                            currWordFour[index] = currWordFour[i];
+                            currWordFour[i] = temp;
+                        }
+                    } break;
+                case 4:
+                    currWordThree = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWordThree.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordThree[index];
+                            currWordThree[index] = currWordThree[i];
+                            currWordThree[i] = temp;
+                        }
+                        
+                    }break;
+                case 5:
+                    currWordTwo = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWordTwo.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWordTwo[index];
+                            currWordTwo[index] = currWordTwo[i];
+                            currWordTwo[i] = temp;
+                        }
+                        
+                    }break;
+                case 6:
+                    currWord = arrayWords[nextIndex++].split("(?!^)");
+                    for (int i = currWord.length - 1; i > 0; i--)
+                    {
+                        index = rnd.nextInt(i + 1);
+                        if (index != i)
+                        {
+                            temp = currWord[index];
+                            currWord[index] = currWord[i];
+                            currWord[i] = temp;
+                        }
+                        
+                    }break;
+                default:
+                    break;
             }
-        }else if(currWord.length == 5){
-            arrayButtonsTwo[currWord.length].setVisible(true);
-            for(int i = 0; i < arrayButtonsTwo.length; i++)
-            {
-                for(int j = 0; j < currWord.length; j++){
-                    arrayButtonsTwo[i].setText(currWord[i]);
-                }
-            }
-        }else if(currWord.length == 4){
-            arrayButtonsThree[currWord.length].setVisible(true);
-            for(int i = 0; i < arrayButtonsThree.length; i++)
-            {
-                for(int j = 0; j < currWord.length; j++){
-                    arrayButtonsThree[i].setText(currWord[i]);
-                }
-            }
-        }
         
 
             
