@@ -126,6 +126,22 @@ public class UserScreenController implements Initializable {
     }
     
     @FXML
+    private void Delete(ActionEvent event) throws IOException{
+        if(isValidName(txtNewUser.getText())){
+                
+                listItems.remove(txtNewUser.getText());
+                
+                txtNewUser.setVisible(false);
+                btnAdd.setVisible(false);
+                btnCancel.setVisible(false);
+                
+            }else{
+                txtNewUser.setPromptText("Enter first name");
+                
+            }
+    }
+    
+    @FXML
     private void Start(ActionEvent event) throws IOException{ 
     // Swap screen
     homeStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("BeginnerLevel.fxml"))));

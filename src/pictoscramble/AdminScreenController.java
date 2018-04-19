@@ -5,18 +5,23 @@
  */
 package pictoscramble;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import static pictoscramble.Main.homeStage;
 
 /**
  *
@@ -39,6 +44,8 @@ public class AdminScreenController implements Initializable {
     private TextField txtNewAdmin;
     @FXML
     private TextField txtPassword;
+    @FXML 
+    private Label lblCharacter;
     
     final ObservableList<String> listItems = FXCollections.observableArrayList();
     
@@ -65,6 +72,7 @@ public class AdminScreenController implements Initializable {
                 txtNewAdmin.setVisible(false);
                 btnAdd.setVisible(false);
                 btnCancel.setVisible(false);
+                lblCharacter.setVisible(false);
                 
             }else{
                 txtNewAdmin.setPromptText("Enter first name");
@@ -77,6 +85,7 @@ public class AdminScreenController implements Initializable {
                txtPassword.setVisible(false);
                btnAdd.setVisible(false);
                btnCancel.setVisible(false);
+               lblCharacter.setVisible(false);
             
            }else{
             
@@ -92,7 +101,7 @@ public class AdminScreenController implements Initializable {
         txtPassword.setVisible(true);
         btnAdd.setVisible(true);
         btnCancel.setVisible(true);     
-        
+        lblCharacter.setVisible(true);
     }
      
     @FXML
@@ -103,8 +112,10 @@ public class AdminScreenController implements Initializable {
                 listItems.add(txtNewAdmin.getText());
                 
                 txtNewAdmin.setVisible(false);
+                txtPassword.setVisible(false);
                 btnAdd.setVisible(false);
                 btnCancel.setVisible(false);
+                lblCharacter.setVisible(false);
                 
             }else{
                 txtNewAdmin.setPromptText("Enter first name");
@@ -117,6 +128,7 @@ public class AdminScreenController implements Initializable {
                txtPassword.setVisible(false);
                btnAdd.setVisible(false);
                btnCancel.setVisible(false);
+               lblCharacter.setVisible(false);
             
            }else{
             
@@ -130,6 +142,7 @@ public class AdminScreenController implements Initializable {
         txtPassword.setVisible(false);
         btnAdd.setVisible(false);
         btnCancel.setVisible(false);
+        lblCharacter.setVisible(false);
     }    
     
     @FXML
@@ -138,9 +151,42 @@ public class AdminScreenController implements Initializable {
     }
     
     @FXML
-    private void Start(ActionEvent event){
-      
+    private void Start(ActionEvent event) throws IOException{ 
+    // Swap screen
+    homeStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("AdminLevel.fxml"))));
         
+    }
+    
+    @FXML
+    private void Delete(ActionEvent event) throws IOException{
+        if(isValidAdmin(txtNewAdmin.getText())){
+                
+                listItems.remove(txtNewAdmin.getText());
+                
+                txtNewAdmin.setVisible(false);
+                txtPassword.setVisible(false);
+                btnAdd.setVisible(false);
+                btnCancel.setVisible(false);
+                lblCharacter.setVisible(false);
+                
+            }else{
+                txtNewAdmin.setPromptText("Enter first name");
+                
+            }
+               
+           if(isValidPassword(txtPassword.getText())){
+               
+               txtNewAdmin.setVisible(false);
+               txtPassword.setVisible(false);
+               btnAdd.setVisible(false);
+               btnCancel.setVisible(false);
+               lblCharacter.setVisible(false);
+            
+           }else{
+            
+               txtPassword.setPromptText("Enter your password");
+            }    
+           
     }
     
     @Override

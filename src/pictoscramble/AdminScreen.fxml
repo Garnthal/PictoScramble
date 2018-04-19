@@ -27,5 +27,7 @@
       </font>
     </Button>
     <Button fx:id="btnCancel" font="$x2" layoutX="307.0" layoutY="297.0" onAction="#Cancel" text="Cancel" visible="false" />
+    <Button id="btnAdmin" font="$x1" layoutX="512.0" layoutY="305.0" onAction="#Delete" text="Delete" />
+    <Label fx:id="lblCharacter" layoutX="392.0" layoutY="262.0" prefWidth="83.0" onKeyPressed="#handle" text="10 chars or less" visible="false" />
   </children>
 </AnchorPane>
